@@ -10,12 +10,12 @@ public class TestRolesController {
     @GetMapping("/accessAdmin")
     @PreAuthorize("hasRole('ADMIN')")
     public String accessAdmin(){
-        return "Hola, has accedito con rol de ADMIN";
+        return "Hola, has accedido con rol de ADMIN";
     }
 
     @GetMapping("/accessUser")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public String accessUser(){
-        return "Hola, has accedito con rol de USER";
+        return "Hola, has accedido con rol de USER";
     }
 }

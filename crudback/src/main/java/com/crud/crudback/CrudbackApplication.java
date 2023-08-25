@@ -35,13 +35,24 @@ public class CrudbackApplication {
 
 			UserEntity userEntity = UserEntity.builder()
 					.email("santiago@mail.com")
-					.username("santiago")
+					.username("raul")
 					.password(passwordEncoder.encode("1234"))
 					.roles(Set.of(RoleEntity.builder()
 							.name(ERole.valueOf(ERole.ADMIN.name()))
 							.build()))
 					.build();
+			
+			UserEntity userEntity2 = UserEntity.builder()
+					.email("any@mail.com")
+					.username("manu")
+					.password(passwordEncoder.encode("1234"))
+					.roles(Set.of(RoleEntity.builder()
+							.name(ERole.valueOf(ERole.USER.name()))
+							.build()))
+					.build();
+
 			userRepository.save(userEntity);
+			userRepository.save(userEntity2);
 		};
 	}
 
