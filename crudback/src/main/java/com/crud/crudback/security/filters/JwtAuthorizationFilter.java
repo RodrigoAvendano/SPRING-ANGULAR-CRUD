@@ -35,6 +35,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
         /* Extraer el token */                                
         String tokenHeader = request.getHeader("Authorization");
+        System.out.println("TOKEN: "+tokenHeader);
 
         /* Si el token es null se rechaza la conexión, los JWT siempre inician con Bearer */
         if(tokenHeader != null && tokenHeader.startsWith("Bearer ")){

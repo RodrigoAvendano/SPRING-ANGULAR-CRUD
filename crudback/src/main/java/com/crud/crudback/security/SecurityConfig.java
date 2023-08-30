@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -36,14 +37,15 @@ public class SecurityConfig {
         JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(jwtUtils);
         jwtAuthenticationFilter.setAuthenticationManager(authenticationManager);
         /* Ruta a donde dirigir, por defecto es login */
-        jwtAuthenticationFilter.setFilterProcessesUrl("/login");
-
+        jwtAuthenticationFilter.setFilterProcessesUrl("/generate-token");
+        System.out.println("Entrada a JWT Filter despupes de ruta ");
         return httpSecurity
-                .csrf(config -> config.disable())
+                
                 .authorizeHttpRequests(auth -> { /* Administrar peticiones*/
-                    auth.requestMatchers("/hello").permitAll();
+                    auth.requestMatchers("/generate-token").permitAll();
                     auth.anyRequest().authenticated(); /* Si se desea acceder a otra ruta debe estar autenticado el usuario */
                 })
+                .csrf().disable()
                 .sessionManagement(session -> { /* Administrar sesiones */
                     session.sessionCreationPolicy(SessionCreationPolicy.STATELESS); /* Creación de sesión */
                 })

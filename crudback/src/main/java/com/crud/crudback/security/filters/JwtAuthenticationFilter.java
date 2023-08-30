@@ -54,7 +54,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         /* Autenticar en la aplicación*/
         UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(username, password); /* Nombre de usuario y contraseña para autenticarse */
-
         return getAuthenticationManager().authenticate(authenticationToken); /* Devuelve la autenticación cuando es correcta */
     }
 

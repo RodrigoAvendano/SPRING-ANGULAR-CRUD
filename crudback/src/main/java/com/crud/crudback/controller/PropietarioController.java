@@ -4,11 +4,14 @@ import com.crud.crudback.dto.Mensaje;
 import com.crud.crudback.dto.PropietarioDTO;
 import com.crud.crudback.entity.Propietario;
 import com.crud.crudback.service.PropietarioService;
+
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +33,7 @@ de RESTful web services y simplifica el uso de las anotaciones @Controller y
 @ResponseBody.
 */
 @RestController
+//@CrossOrigin("*")
 public class PropietarioController {
     
     //Inyecta la dependencia de Service
@@ -56,7 +60,7 @@ public class PropietarioController {
         
         return new ResponseEntity<>(id,HttpStatus.OK);		
     }
-    
+
     /*Manejan las peticiones GET de HTTP Request*/
     @GetMapping("/obtenerProp/{id}")
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
