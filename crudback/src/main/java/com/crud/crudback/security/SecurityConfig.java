@@ -37,12 +37,13 @@ public class SecurityConfig {
         JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(jwtUtils);
         jwtAuthenticationFilter.setAuthenticationManager(authenticationManager);
         /* Ruta a donde dirigir, por defecto es login */
-        jwtAuthenticationFilter.setFilterProcessesUrl("/generate-token");
+        jwtAuthenticationFilter.setFilterProcessesUrl("/login");
         System.out.println("Entrada a JWT Filter despupes de ruta ");
         return httpSecurity
-                
+                .cors()
+                .and()
                 .authorizeHttpRequests(auth -> { /* Administrar peticiones*/
-                    auth.requestMatchers("/generate-token").permitAll();
+                    //auth.requestMatchers("/login").permitAll();
                     auth.anyRequest().authenticated(); /* Si se desea acceder a otra ruta debe estar autenticado el usuario */
                 })
                 .csrf().disable()
