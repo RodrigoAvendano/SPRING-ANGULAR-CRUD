@@ -1,0 +1,41 @@
+<mat-toolbar color = "primary" class="nav-bar">
+  <div class="links">
+    <a [routerLink]="'/'"
+    mat-icon-button>
+      <mat-icon>account_circle</mat-icon>
+      <span>Propietarios</span>
+    </a>
+  </div>
+
+  <div class="links">
+    <a [routerLink]= "'/login'"
+    mat-icon-button>
+      <mat-icon>receipt</mat-icon>
+      <span>Chips</span>
+    </a>
+  </div>
+
+  <div class="links">
+    <a [routerLink]= "'/signup'"
+    mat-icon-button>
+      <mat-icon>pets</mat-icon>
+      <span>Mascotas</span>
+    </a>
+  </div>
+
+  <div class="links">
+    <a [routerLink]= "'/signup'"
+    mat-icon-button>
+      <mat-icon>supervised_user_circle</mat-icon>
+      <span>Usuarios</span>
+    </a>
+  </div>
+
+  <div class="links">
+    <a [routerLink]= "'/login'"
+    mat-icon-button>
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Cerrar Sesión</span>
+    </a>
+  </div>
+</mat-toolbar>

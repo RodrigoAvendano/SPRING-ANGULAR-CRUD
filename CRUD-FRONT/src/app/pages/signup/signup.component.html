@@ -1,0 +1,45 @@
+<div class = "bootstrap-wrapper">
+  <div class = "container">
+    <div class = "row">
+      <div class="col-md-6 offset-md-3">
+        <div class="container text-center">
+          <img src="../../../assets/images/add-group.png" alt="add user">
+        </div>
+        <h1 class="text-center">¡Registrate Aquí!</h1>
+        <form (ngSubmit) = "formSubmit()">
+          <!-- Form Field de Angular Material -->
+          <mat-form-field class = "full-width" appearance = "outline">
+            <mat-label>Nombre de usuario</mat-label>
+            <input required [(ngModel)] = "user.username" name = "username" matInput placeholder="Ingresa tu nombre de usuario">
+          </mat-form-field>
+
+          <mat-form-field class = "full-width" appearance = "outline">
+            <mat-label>Contraseña</mat-label>
+            <input required [(ngModel)] = "user.password" name = "password" type = "password" matInput placeholder="Ingresa tu contraseña">
+          </mat-form-field>
+
+          <mat-form-field class = "full-width" appearance = "outline">
+            <mat-label>Nombre</mat-label>
+            <input required [(ngModel)] = "user.nombre" name = "nombre" matInput placeholder="Ingresa tu nombre">
+          </mat-form-field>
+
+          <mat-form-field class = "full-width" appearance = "outline">
+            <mat-label>Apellido</mat-label>
+            <input required [(ngModel)] = "user.apellido" name = "apellido" matInput placeholder="Ingresa tu apellido">
+          </mat-form-field>
+
+          <mat-form-field class = "full-width" appearance = "outline">
+            <mat-label>E-mail</mat-label>
+            <input required [(ngModel)] = "user.email" name = "email" type = "email" matInput placeholder="Ingresa tu e-mail">
+          </mat-form-field>
+
+          <!-- Botón de Angular Material -->
+          <div class="container text-center btns">
+            <button mat-raised-button color = "primary">Registrar</button>
+            <button type = "reset" mat-raised-button color = "accent">Limpiar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
